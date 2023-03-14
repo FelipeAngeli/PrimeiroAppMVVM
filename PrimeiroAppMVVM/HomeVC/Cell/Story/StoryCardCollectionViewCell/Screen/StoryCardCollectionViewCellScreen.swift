@@ -18,10 +18,31 @@ class StoryCardCollectionViewCellScreen: UIView {
         return view
     }()
     
+    lazy var collectionView: UICollectionView = {
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        cv.showsVerticalScrollIndicator = false
+        cv.register(StoryCollectionViewCell.self, forCellWithReuseIdentifier: StoryCollectionViewCell.identifier)
+        cv.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
+        cv.backgroundColor = .clear
+        
+        return cv
+    }()
+    
+    public func configProtocolsCollectionView(delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource) {
+        collectionView.delegate = delegate
+        collectionView.dataSource = dataSource
+    }
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(cardView)
+        cardView.addSubview(collectionView)
+        collectionView.pin(to: cardView)
+        configConstraints()
         
     }
     
