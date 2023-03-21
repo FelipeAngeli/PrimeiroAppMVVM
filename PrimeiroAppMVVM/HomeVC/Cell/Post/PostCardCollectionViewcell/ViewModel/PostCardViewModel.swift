@@ -19,7 +19,7 @@ class PostCardViewModel {
         listPosts.count
     }
     
-    public func loudCurrentStory(indexPath: IndexPath) -> Posts {
+    public func loudCurrenStory(indexPath: IndexPath) -> Posts {
         listPosts[indexPath.row]
     }
     

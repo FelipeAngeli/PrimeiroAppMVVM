@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5564557F29C91A6700EAA463 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5564557E29C91A6700EAA463 /* PostCollectionViewCell.swift */; };
+		5564558229C91AC900EAA463 /* PostCollectionViewCellScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5564558129C91AC900EAA463 /* PostCollectionViewCellScreen.swift */; };
 		55687FFA29BFEDE5007853EA /* PostCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55687FF929BFEDE5007853EA /* PostCardCollectionViewCell.swift */; };
 		55687FFD29BFEE7D007853EA /* PostCardCollectionViewCellScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55687FFC29BFEE7D007853EA /* PostCardCollectionViewCellScreen.swift */; };
 		55687FFF29BFFBCA007853EA /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55687FFE29BFFBCA007853EA /* Post.swift */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5564557E29C91A6700EAA463 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
+		5564558129C91AC900EAA463 /* PostCollectionViewCellScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCellScreen.swift; sourceTree = "<group>"; };
 		55687FF929BFEDE5007853EA /* PostCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		55687FFC29BFEE7D007853EA /* PostCardCollectionViewCellScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardCollectionViewCellScreen.swift; sourceTree = "<group>"; };
 		55687FFE29BFFBCA007853EA /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -63,6 +67,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5564557D29C91A3000EAA463 /* PostCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				5564558029C91A9900EAA463 /* Screen */,
+				5564557E29C91A6700EAA463 /* PostCollectionViewCell.swift */,
+			);
+			path = PostCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		5564558029C91A9900EAA463 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				5564558129C91AC900EAA463 /* PostCollectionViewCellScreen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
 		55687FF629BFED5E007853EA /* Story */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +96,7 @@
 		55687FF729BFED7F007853EA /* Post */ = {
 			isa = PBXGroup;
 			children = (
+				5564557D29C91A3000EAA463 /* PostCollectionViewCell */,
 				55687FF829BFED88007853EA /* PostCardCollectionViewcell */,
 			);
 			path = Post;
@@ -311,12 +333,14 @@
 				55C03EF129B1253800A7B0B2 /* StoryCardCollectionViewCell.swift in Sources */,
 				55C03EED29B1212500A7B0B2 /* HomeViewModel.swift in Sources */,
 				55C03F0029B22F3200A7B0B2 /* StoryCollectionViewCell.swift in Sources */,
+				5564557F29C91A6700EAA463 /* PostCollectionViewCell.swift in Sources */,
 				55C03EF729B21B6B00A7B0B2 /* StoryCardViewModel.swift in Sources */,
 				5568800229C000F8007853EA /* PostCardViewModel.swift in Sources */,
 				55687FFD29BFEE7D007853EA /* PostCardCollectionViewCellScreen.swift in Sources */,
 				55C03EFB29B224D400A7B0B2 /* Stories.swift in Sources */,
 				55C03ED529B1119800A7B0B2 /* HomeVC.swift in Sources */,
 				55687FFF29BFFBCA007853EA /* Post.swift in Sources */,
+				5564558229C91AC900EAA463 /* PostCollectionViewCellScreen.swift in Sources */,
 				55C03EEB29B11D8A00A7B0B2 /* UIColor + Extension.swift in Sources */,
 				55C03ED129B1119800A7B0B2 /* AppDelegate.swift in Sources */,
 				55C03ED329B1119800A7B0B2 /* SceneDelegate.swift in Sources */,
