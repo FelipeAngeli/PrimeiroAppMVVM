@@ -18,7 +18,6 @@ class PostCardCollectionViewCellScreen: UIView {
         cv.showsVerticalScrollIndicator = false
         cv.register(PostCardCollectionViewCell.self, forCellWithReuseIdentifier: PostCollectionViewCell.identifier)
         cv.backgroundColor = .clear
-        
         return cv
     }()
     

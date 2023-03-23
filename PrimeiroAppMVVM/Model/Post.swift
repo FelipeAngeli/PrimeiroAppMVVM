@@ -8,7 +8,7 @@
 import Foundation
 
 struct Posts {
-    let profileImage: String
-    let userName: String
-    let postImage: String
+    var profileImage: String
+    var userName: String
+    var postImage: String
 }

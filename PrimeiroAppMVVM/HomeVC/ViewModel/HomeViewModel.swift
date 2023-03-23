@@ -37,7 +37,7 @@ class HomeViewModel {
     
 
     public  var numberOfItems: Int {
-        1
+        2
     }
     
     
