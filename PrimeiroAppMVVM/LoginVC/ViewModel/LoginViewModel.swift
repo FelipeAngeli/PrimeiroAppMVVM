@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-protocol LoginViewModelProtocol: AnyObject{
+protocol LoginViewModelProtocol: AnyObject {
     func successLogin()
     func errorLogin(errorMessage: String)
 }
@@ -16,14 +16,15 @@ protocol LoginViewModelProtocol: AnyObject{
 class LoginViewModel {
     
     private weak var delegate: LoginViewModelProtocol?
+    private var auth = Auth.auth()
+    
+    
     public func delegate(delegate: LoginViewModelProtocol?) {
         self.delegate = delegate
     }
 
-    private var auth = Auth.auth()
-    
     public func login(email: String, password: String) {
-        auth.signIn(withEmail: email, password: password) { authResult , error in
+        auth.signIn(withEmail: email, password: password) { authResult, error in
             if error == nil {
                 print("sucesso login")
                 self.delegate?.successLogin()
@@ -35,10 +36,9 @@ class LoginViewModel {
     }
     
     public func registerUser(email: String, password: String) {
-        auth.createUser(withEmail: email, password: password) { authResult , error in
+        auth.createUser(withEmail: email, password: password) { authResult, error in
             if error == nil {
                 print("sucesso cadastro")
-                
             } else {
                 print("Error cadastro, error: \(error?.localizedDescription ?? "")")
             }

@@ -7,25 +7,24 @@
 
 import UIKit
 
-protocol LoginScreenProtocol: AnyObject {
-    func tappedLoginButton()
+protocol RegisterScreenProtocol: AnyObject {
     func tappedRegisterButton()
 }
 
-class LoginScreen: UIView {
+class RegisterScreen: UIView {
     
-    private weak var delegate: LoginScreenProtocol?
+    private weak var delegate: RegisterScreenProtocol?
     
-    public func delegate(delegate: LoginScreenProtocol?) {
+    public func delegate(delegate: RegisterScreenProtocol?) {
         self.delegate = delegate
     }
     
-    lazy var loginLabel: UILabel = {
+    lazy var registerLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 40)
-        label.text = "Login"
+        label.text = "Cadastrar"
         return label
     }()
     
@@ -53,32 +52,16 @@ class LoginScreen: UIView {
         return tf
     }()
     
-    lazy var loginButton: UIButton = {
-        let button: UIButton = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Logar", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
-        button.setTitleColor(.white, for: .normal)
-        button.isEnabled = false
-        button.backgroundColor = .lightGray
-        button.clipsToBounds = true
-        button.layer.cornerRadius = 7.5
-        button.addTarget(self, action: #selector(tappedLoginButton), for: .touchUpInside)
-        return button
-    }()
-    
-    @objc func tappedLoginButton(_ sender: UIButton) {
-        delegate?.tappedLoginButton()
-    }
-    
     lazy var registerButton: UIButton = {
         let button: UIButton = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Não tem conta? Cadastre-se", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        button.setTitle("Cadastre-se", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         button.setTitleColor(.white, for: .normal)
-        button.isEnabled = true
-        button.backgroundColor = .clear
+        button.isEnabled = false
+        button.backgroundColor = .black.withAlphaComponent(0.6)
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 7.5
         button.addTarget(self, action: #selector(tappedRegisterButton), for: .touchUpInside)
         return button
     }()
@@ -90,7 +73,7 @@ class LoginScreen: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .orange
+        backgroundColor = .yellow
         addElements()
         configConstraints()
     }
@@ -100,19 +83,18 @@ class LoginScreen: UIView {
     }
     
     private func addElements() {
-        addSubview(loginLabel)
+        addSubview(registerLabel)
         addSubview(emailTextField)
         addSubview(passwordTextField)
-        addSubview(loginButton)
         addSubview(registerButton)
     }
     
     private func configConstraints() {
         NSLayoutConstraint.activate([
-            loginLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
-            loginLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            registerLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            registerLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            emailTextField.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 45),
+            emailTextField.topAnchor.constraint(equalTo: registerLabel.bottomAnchor, constant: 45),
             emailTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             emailTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             emailTextField.heightAnchor.constraint(equalToConstant: 45),
@@ -122,13 +104,10 @@ class LoginScreen: UIView {
             passwordTextField.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
             passwordTextField.heightAnchor.constraint(equalTo: emailTextField.heightAnchor),
             
-            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 50),
-            loginButton.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
-            loginButton.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
-            loginButton.heightAnchor.constraint(equalTo: emailTextField.heightAnchor),
-            
-            registerButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20),
-            registerButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            registerButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 50),
+            registerButton.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
+            registerButton.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
+            registerButton.heightAnchor.constraint(equalTo: emailTextField.heightAnchor),
         ])
     }
 
