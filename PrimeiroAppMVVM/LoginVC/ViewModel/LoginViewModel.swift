@@ -35,14 +35,4 @@ class LoginViewModel {
         }
     }
     
-    public func registerUser(email: String, password: String) {
-        auth.createUser(withEmail: email, password: password) { authResult, error in
-            if error == nil {
-                print("sucesso cadastro")
-            } else {
-                print("Error cadastro, error: \(error?.localizedDescription ?? "")")
-            }
-        }
-    }
-    
 }

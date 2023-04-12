@@ -30,10 +30,13 @@ class RegisterVC: UIViewController {
 }
 
 extension RegisterVC: RegisterScreenProtocol {
+    func tappedBackButton() {
+        navigationController?.popViewController(animated: true)
+    }
+    
     
     
     func tappedRegisterButton() {
-        print("chegou na VC")
         viewModel.registerUser(email: registerScreen?.emailTextField.text ?? "", password: registerScreen?.passwordTextField.text ?? "")
     }
 
@@ -49,7 +52,6 @@ extension RegisterVC: RegisterViewModelProtocol {
     }
     
     func errorRegister(errorMessage: String) {
-        print(#function)
         Alert(controller: self).showAlertInformation(title: "Ops, error cadastro!", message: errorMessage)
     }
 }
@@ -61,11 +63,9 @@ extension RegisterVC: UITextFieldDelegate {
         let passwordTextField: String = registerScreen?.passwordTextField.text ?? ""
         
         if !email.isEmpty && !passwordTextField.isEmpty {
-            print("Botao habilitado")
             registerScreen?.registerButton.isEnabled = true
             registerScreen?.registerButton.backgroundColor = .black
         } else {
-            print("Botao desabilitado")
             registerScreen?.registerButton.isEnabled = false
             registerScreen?.registerButton.backgroundColor = .black.withAlphaComponent(0.6)
         }

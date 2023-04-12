@@ -84,7 +84,7 @@ class LoginScreen: UIView {
     }()
     
     @objc func tappedRegisterButton(_ sender: UIButton) {
-        print("Botao funcionandooooo")
+
         delegate?.tappedRegisterButton()
     }
 

@@ -9,6 +9,8 @@ import UIKit
 
 protocol RegisterScreenProtocol: AnyObject {
     func tappedRegisterButton()
+    func tappedBackButton()
+    
 }
 
 class RegisterScreen: UIView {
@@ -67,8 +69,23 @@ class RegisterScreen: UIView {
     }()
     
     @objc func tappedRegisterButton(_ sender: UIButton) {
-        print("Botao funcionandooooo")
         delegate?.tappedRegisterButton()
+    }
+    
+    lazy var backButton: UIButton = {
+        let button: UIButton = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Voltar", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        button.setTitleColor(.black, for: .normal)
+        button.isEnabled = true
+        button.backgroundColor = .clear
+        button.addTarget(self, action: #selector(tappedBackButton), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc func tappedBackButton(_ sender: UIButton) {
+        delegate?.tappedBackButton()
     }
 
     override init(frame: CGRect) {
@@ -87,6 +104,7 @@ class RegisterScreen: UIView {
         addSubview(emailTextField)
         addSubview(passwordTextField)
         addSubview(registerButton)
+        addSubview(backButton)
     }
     
     private func configConstraints() {
@@ -108,6 +126,9 @@ class RegisterScreen: UIView {
             registerButton.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
             registerButton.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
             registerButton.heightAnchor.constraint(equalTo: emailTextField.heightAnchor),
+            
+            backButton.topAnchor.constraint(equalTo: registerButton.bottomAnchor, constant: 20),
+            backButton.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
 

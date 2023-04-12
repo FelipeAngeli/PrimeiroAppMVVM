@@ -43,7 +43,6 @@ extension LoginVC: LoginScreenProtocol {
     }
     
     func tappedLoginButton() {
-        print("chegou na VC")
         viewModel.login(email: loginScreen?.emailTextField.text ?? "", password: loginScreen?.passwordTextField.text ?? "")
     }
  
@@ -58,7 +57,6 @@ extension LoginVC: LoginViewModelProtocol {
     }
     
     func errorLogin(errorMessage: String) {
-        print(#function)
         Alert(controller: self).showAlertInformation(title: "Ops, error Login!", message: errorMessage)
     }
 }
@@ -70,11 +68,9 @@ extension LoginVC: UITextFieldDelegate {
         let passwordTextField: String = loginScreen?.passwordTextField.text ?? ""
         
         if !email.isEmpty && !passwordTextField.isEmpty {
-            print("Botao habilitado")
             loginScreen?.loginButton.isEnabled = true
             loginScreen?.loginButton.backgroundColor = .blue
         } else {
-            print("Botao desabilitado")
             loginScreen?.loginButton.isEnabled = false
             loginScreen?.loginButton.backgroundColor = .lightGray
         }
