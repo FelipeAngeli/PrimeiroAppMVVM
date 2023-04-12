@@ -40,6 +40,7 @@ extension LoginVC: LoginScreenProtocol {
     func tappedRegisterButton() {
         let vc = RegisterVC()
         navigationController?.pushViewController(vc, animated: true)
+      
     }
     
     func tappedLoginButton() {
