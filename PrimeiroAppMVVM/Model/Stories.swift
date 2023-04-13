@@ -7,8 +7,7 @@
 
 import Foundation
 
-
-struct Stories {
-    let image: String
-    let userName: String
+// MARK: - Story
+struct Stories: Codable {
+    var userName, image: String?
 }
