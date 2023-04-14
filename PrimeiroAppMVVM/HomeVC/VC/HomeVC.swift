@@ -19,11 +19,24 @@ class HomeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        homeScreen?.configProtocolsCollectionView(delegate: self, dataSource: self)
+        viewModel.delegate(delegate: self)
         viewModel.fecthAllRequest()
     }
 
 
+}
+
+extension HomeVC: HomeViewModelProtocol {
+    func success() {
+        print(#function)
+        DispatchQueue.main.async {
+            self.homeScreen?.configProtocolsCollectionView(delegate: self, dataSource: self)
+        }
+    }
+    
+    func error() {
+        print(#function)
+    }
 }
 
 

@@ -8,5 +8,6 @@ target 'PrimeiroAppMVVM' do
   # Pods for PrimeiroAppMVVM
 
 pod 'SnapKit', '~> 5.6.0'
+pod 'Alamofire'
 
 end
