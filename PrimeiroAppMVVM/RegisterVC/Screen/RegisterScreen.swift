@@ -21,6 +21,14 @@ class RegisterScreen: UIView {
         self.delegate = delegate
     }
     
+    lazy var imageView: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "bg")
+//        image.contentMode = .scaleToFill
+        return image
+    }()
+    
     lazy var registerLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -90,7 +98,7 @@ class RegisterScreen: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .yellow
+//        backgroundColor = .yellow
         addElements()
         configConstraints()
     }
@@ -100,6 +108,7 @@ class RegisterScreen: UIView {
     }
     
     private func addElements() {
+        addSubview(imageView)
         addSubview(registerLabel)
         addSubview(emailTextField)
         addSubview(passwordTextField)
@@ -109,6 +118,11 @@ class RegisterScreen: UIView {
     
     private func configConstraints() {
         NSLayoutConstraint.activate([
+//            imageView.topAnchor.constraint(equalTo: topAnchor),
+//            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+//            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+//            imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
             registerLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             registerLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             

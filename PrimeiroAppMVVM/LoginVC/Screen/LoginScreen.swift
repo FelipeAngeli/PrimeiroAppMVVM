@@ -20,6 +20,14 @@ class LoginScreen: UIView {
         self.delegate = delegate
     }
     
+    lazy var imageView: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "bg")
+        image.contentMode = .scaleToFill
+        return image
+    }()
+    
     lazy var loginLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -76,7 +84,7 @@ class LoginScreen: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Não tem conta? Cadastre-se", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.black, for: .normal)
         button.isEnabled = true
         button.backgroundColor = .clear
         button.addTarget(self, action: #selector(tappedRegisterButton), for: .touchUpInside)
@@ -87,10 +95,12 @@ class LoginScreen: UIView {
 
         delegate?.tappedRegisterButton()
     }
+    
+
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .orange
+//        self.image("background1")
         addElements()
         configConstraints()
     }
@@ -100,6 +110,7 @@ class LoginScreen: UIView {
     }
     
     private func addElements() {
+        addSubview(imageView)
         addSubview(loginLabel)
         addSubview(emailTextField)
         addSubview(passwordTextField)
@@ -109,6 +120,11 @@ class LoginScreen: UIView {
     
     private func configConstraints() {
         NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
             loginLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             loginLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
